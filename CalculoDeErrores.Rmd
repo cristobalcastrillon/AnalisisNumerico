@@ -1,0 +1,35 @@
+---
+title: "Cálculo del Error (Incertidumbre)"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+### Calcule el tamaño del error dado por las operaciones aritméticas, para la solución del siguiente problema:
+
+La velocidad de una partícula es constante e igual a 4 m/s, medida con un error de 0.1 m/s durante un tiempo de recorrido de 5s medido con un error de 0.1s. Determine el error absoluto y el error relativo en el valor de la distancia recorrida.
+
+```{r variables}
+
+v <- 4
+Ev <- 0.1
+
+t <- 5
+Et <- 0.1
+
+#Creando un vector de tiempo (discretizado en intervalos de 1s)...
+x <- 0:5
+
+#Creando un vector de distancia...
+d <- NULL
+for(i in x){
+  d[i] <- v*x[i]
+}
+
+#El error asociado a la distancia calculada es igual a la raíz cuadrada de la adición de la derivada parcial de la distancia con respecto al tiempo, multiplicada por la incertidumbre asociada al tiempo, al cuadrado; y la derivada parcial de la distancia con respecto a la velocidad, multiplicada por la incertidumbre asociada a la velocidad.
+Ed <- ((v*Et)^2 + (x[5]*Ev)^2)^(1/2)
+Ed
+
+```
