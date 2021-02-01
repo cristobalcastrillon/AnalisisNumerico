@@ -4,9 +4,7 @@ import numpy as np
 x = Symbol('x')
 
 def serieTaylor(n, a, f, val):
-    "Calcula el valor de la serie de Taylor para la función 'f',"
-    " teniendo en cuenta la 'n'-ésima derivada ('n'-ésimo término de la serie de Taylor)"
-    " alrededor del valor 'a', evaluada en 'val'"
+    "Calcula el valor de la serie de Taylor para la función 'f', teniendo en cuenta la 'n'-ésima derivada ('n'-ésimo término de la serie de Taylor) alrededor del valor 'a', evaluada en 'val'"
     print("f(x):", f, "\ta:", a, "\tn:", n, "\tEvaluada en:", val)
 
     for i in range(0, n+1):
