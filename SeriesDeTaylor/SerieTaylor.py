@@ -1,7 +1,6 @@
 from sympy import *
 import numpy as np
 
-#Definiendo el símbolo 'x'...
 x = Symbol('x')
 
 def serieTaylor(n, a, f, val):
@@ -17,12 +16,3 @@ def serieTaylor(n, a, f, val):
         # print("La aproximación en el", i, "término de la serie es igual a ", taylor)
 
     return taylor
-
-puntoA = serieTaylor(n = 2, a = 0.05, f = x**(1/2), val = 0.0088)
-print(puntoA)
-
-puntoB = serieTaylor(n = 12, a = 0.05, f = x**(1/2), val = 0.0088)
-print(puntoB)
-
-# puntoC = serieTaylor(n = ??, a = ??, f = exp(x), val = 2.5)
-# print(puntoC)
