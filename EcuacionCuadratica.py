@@ -1,7 +1,3 @@
-
-#Probar con a=1, b=-2, c=-3 para solucion real
-#Probar con a=11, b=-11, c=11 para solucion compleja
-
 import cmath
 import math
 
