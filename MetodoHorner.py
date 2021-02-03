@@ -35,8 +35,7 @@ def formatoPolinomio(grados, coeficientes):
     return polinomio
 
 #def formatoHorner(grados, coeficientes, polinomio):
-    #La idea es hacer una matriz de grados en que la primera fila corresponda a los grados del polinomio
-    #la segunda fila corresponda a lo anterior -1 (excepto cuando el valor es 0: 0 - 1 = 0)
+    #recorrer la matrizHorner...
 
 n = int(input("Ingrese el grado del polinomio: "))
 grados = crearVectorPol(n)
