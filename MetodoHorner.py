@@ -50,5 +50,5 @@ print(gradosCopia)
 coeficientes = crearVectorCoef(n) 
 print(coeficientes)
 
-polinomio = formatoPolinomio(grados, coeficientes)
+polinomio = formatoPolinomio(gradosCopia, coeficientes)
 print("p(x) = ", polinomio)
