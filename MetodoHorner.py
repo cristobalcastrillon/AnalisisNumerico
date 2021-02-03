@@ -1,5 +1,5 @@
-from sympy import *
 import numpy as np
+from sympy import *
 
 x = Symbol('x')
 
@@ -11,7 +11,6 @@ def crearVectorPol(n):
 
 def crearMatrizPol(n, vec):
     matriz = []
-    #ARREGLAR: Se está pasando una referencia a la lista 'vec', por lo que se está cambiando sus valores
     for i in range(0, n):
         matriz.append(vec)
         # Imprimir la matriz si es necesario:
@@ -41,9 +40,12 @@ def formatoPolinomio(grados, coeficientes):
 
 n = int(input("Ingrese el grado del polinomio: "))
 grados = crearVectorPol(n)
+#AVERIGUAR: Si se puede hacer una copia que no necesariamente sea el mismo obj. (como en C++)
+gradosCopia = crearVectorPol(n)
 print(grados)
 
 matrizHorner = crearMatrizPol(n, grados)
+print(gradosCopia)
 
 coeficientes = crearVectorCoef(n) 
 print(coeficientes)
