@@ -9,19 +9,6 @@ def crearVectorPol(n):
         vec.append(i)
     return vec
 
-def crearMatrizPol(n, vec):
-    matriz = []
-    for i in range(0, n):
-        matriz.append(vec)
-        # Imprimir la matriz si es necesario:
-        # print(vec)
-        for j in range(0, n+1):
-            if((vec[j] - 1) > 0):
-                vec[j] -= 1
-            else:
-                vec[j] = 0
-    return matriz
-
 def crearVectorCoef(n):
     vec = []
     for i in range(0, n+1):
@@ -34,20 +21,25 @@ def formatoPolinomio(grados, coeficientes):
         polinomio += x**grados[i] * coeficientes[i]
     return polinomio
 
-#def formatoHorner(grados, coeficientes, polinomio):
-    #recorrer la matrizHorner...
+def formatoHorner(coeficientes, init):
+    for i in range(init, n+1):
+        if(i != n):
+            return coeficientes[init] + x * formatoHorner(coeficientes, i+1)
+        else:
+            return coeficientes[init]
+
 
 n = int(input("Ingrese el grado del polinomio: "))
 grados = crearVectorPol(n)
-#AVERIGUAR: Si se puede hacer una copia que no necesariamente sea el mismo obj. (como en C++)
-gradosCopia = crearVectorPol(n)
 print(grados)
-
-matrizHorner = crearMatrizPol(n, grados)
-print(gradosCopia)
 
 coeficientes = crearVectorCoef(n) 
 print(coeficientes)
 
-polinomio = formatoPolinomio(gradosCopia, coeficientes)
+polinomio = formatoPolinomio(grados, coeficientes)
 print("p(x) = ", polinomio)
+
+polinomioHorner = formatoHorner(coeficientes, 0)
+print("Ingrese el valor de 'x' con el que evaluar el polinomio: ")
+a = float(input())
+print(polinomioHorner.evalf(subs = {x: a}))
