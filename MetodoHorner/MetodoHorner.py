@@ -15,25 +15,9 @@ def formatoPolinomio(n, coeficientes):
         polinomio += x**i * coeficientes[i]
     return polinomio
 
-def formatoHorner(coeficientes, init):
+def formatoHorner(coeficientes, init, n):
     for i in range(init, n+1):
         if(i != n):
-            return coeficientes[init] + x * formatoHorner(coeficientes, i+1)
+            return coeficientes[init] + x * formatoHorner(coeficientes, i+1, n)
         else:
             return coeficientes[init]
-
-
-n = int(input("Ingrese el grado del polinomio: "))
-
-coeficientes = crearVectorCoef(n) 
-print(coeficientes)
-
-polinomio = formatoPolinomio(n, coeficientes)
-print("p(x) = ", polinomio)
-
-polinomioHorner = formatoHorner(coeficientes, 0)
-print(polinomioHorner)
-
-print("Ingrese el valor de 'x' con el que evaluar el polinomio: ")
-a = float(input())
-print(polinomioHorner.evalf(subs = {x: a}))
