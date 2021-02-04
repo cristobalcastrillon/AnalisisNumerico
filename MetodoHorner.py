@@ -3,22 +3,16 @@ from sympy import *
 
 x = Symbol('x')
 
-def crearVectorPol(n):
-    vec = []
-    for i in range(0, n+1):
-        vec.append(i)
-    return vec
-
 def crearVectorCoef(n):
     vec = []
     for i in range(0, n+1):
         vec.append(int(input("Ingrese el coeficiente del término " +str(i) +": ")))
     return vec
 
-def formatoPolinomio(grados, coeficientes):
+def formatoPolinomio(n, coeficientes):
     polinomio = 0
-    for i in grados:
-        polinomio += x**grados[i] * coeficientes[i]
+    for i in range(0, n+1):
+        polinomio += x**i * coeficientes[i]
     return polinomio
 
 def formatoHorner(coeficientes, init):
@@ -30,13 +24,11 @@ def formatoHorner(coeficientes, init):
 
 
 n = int(input("Ingrese el grado del polinomio: "))
-grados = crearVectorPol(n)
-print(grados)
 
 coeficientes = crearVectorCoef(n) 
 print(coeficientes)
 
-polinomio = formatoPolinomio(grados, coeficientes)
+polinomio = formatoPolinomio(n, coeficientes)
 print("p(x) = ", polinomio)
 
 polinomioHorner = formatoHorner(coeficientes, 0)
