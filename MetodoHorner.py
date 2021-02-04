@@ -40,6 +40,8 @@ polinomio = formatoPolinomio(grados, coeficientes)
 print("p(x) = ", polinomio)
 
 polinomioHorner = formatoHorner(coeficientes, 0)
+print(polinomioHorner)
+
 print("Ingrese el valor de 'x' con el que evaluar el polinomio: ")
 a = float(input())
 print(polinomioHorner.evalf(subs = {x: a}))
