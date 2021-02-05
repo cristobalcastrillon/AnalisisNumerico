@@ -21,12 +21,21 @@ def truncate(number, decimals=0):
 
 def babylonianSqRt(n, E, x):
     "Esta función calcula la raíz cuadrada de 'n' con un error permitido 'E' y brindando un valor aproximado inicial 'x'"
+    
+    #Orden de convergencia
+    # vecError = []
+    # i = 0
+
     diferencia = 1
     y = x
     while(diferencia > E):
         y = 0.5 * (x + (n/x))
         diferencia = abs(x - y)
+        #Orden de convergencia
+        # vecError[i]
         x = y
+        #Orden de convergencia
+        # i += 1
     return y
 
 print('Por favor, escriba el número cuya raíz cuadrada desea calcular: ')
@@ -43,3 +52,6 @@ x = float(input())
 
 #Llamada a la función 'babylonianSqRt'
 print(truncate(babylonianSqRt(n, E, x), p))
+
+#Tabla para orden de convergencia
+# print()
