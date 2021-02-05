@@ -1,4 +1,3 @@
-# import numpy as np
 from sympy import *
 import MetodoHorner as mh
 
