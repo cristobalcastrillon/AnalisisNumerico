@@ -24,7 +24,7 @@ y = int(input("Por favor ingrese el grado de diferenciación que desea para el p
 polinomiodx = polinomio.diff(x, y)
 print("p" + comillasDer(y) + "(x) =", polinomiodx)
 
-mh.calcularVectores(y, coeficientes, grados)
+mh.recalcularVectores(y, coeficientes, grados)
 
 polinomioHorner = mh.formatoHorner(coeficientes, 0, n)
 print(polinomioHorner)
