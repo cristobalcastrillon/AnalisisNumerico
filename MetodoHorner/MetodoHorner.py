@@ -9,6 +9,12 @@ def crearVectorCoef(n):
         vec.append(int(input("Ingrese el coeficiente del término " +str(i) +": ")))
     return vec
 
+def crearVectorGrados(n):
+    vec = []
+    for i in range(0, n+1):
+        vec.append(i)
+    return vec
+
 def formatoPolinomio(n, coeficientes):
     polinomio = 0
     for i in range(0, n+1):
