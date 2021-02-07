@@ -27,3 +27,13 @@ def formatoHorner(coeficientes, init, n):
             return coeficientes[init] + x * formatoHorner(coeficientes, i+1, n)
         else:
             return coeficientes[init]
+
+def recalcularVectores(y, coeficientes, grados):
+    "Recalcula los vectores de coeficientes y grados de un polinomio después de cada iteración correspondiente a la diferenciación"
+    for i in range(0, y):
+        for j in range(0, len(coeficientes)):
+            coeficientes[j] *= grados[j]
+            if(grados[j]-1 > 0):
+                grados[j] -= 1
+            else:
+                grados[j] = 0
