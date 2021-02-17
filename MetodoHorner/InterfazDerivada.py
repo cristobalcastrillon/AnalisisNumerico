@@ -1,5 +1,5 @@
-from sympy import *
 import MetodoHorner as mh
+from sympy import *
 
 x = Symbol('x')
 
