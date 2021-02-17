@@ -32,8 +32,8 @@ while(salir == 'n'):
         print("\n[Con tol=",tol,"]=================================+")
         n = 0
         tramo = abs(b-a)
-        #TODO: Buscar cuál es el número máximo de iteraciones para la solución con el método de Bisección y reemplazarlo en la condición del while (...and n < numItBiseccion).
-        while(tramo > tol and n < 56):
+        while(tramo > tol):
+        # while(tramo > tol and n < 56):
             c = b - (f(b)*(a-b))/(f(a)-f(b))
             cambio = f(a)*f(c) 
             if(cambio>0):
