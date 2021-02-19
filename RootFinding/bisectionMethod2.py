@@ -1,6 +1,9 @@
 #found in: https://stackoverflow.com/questions/52996211/bisection-method-in-python
+import math
+
 def root11(x):
-    return((x**3)-(2*x**2)+(4/3)*x-(8/27))
+    return f = lambda x: (math.cos(x)**2)-x**2
+    # return((x**3)-(2*x**2)+(4/3)*x-(8/27))
 
 def bisection_method(f, a, b, tol):
     if f(a)*f(b) >= 0:
@@ -19,7 +22,7 @@ def bisection_method(f, a, b, tol):
             iter += 1
         return(midpoint, iter)
 
-answer, iterations = bisection_method(root11, -1, 2, 10**-56)
+answer, iterations = bisection_method(root11, -1, 2, 10**-8)
 print("Answer:", answer, "\nfound in", iterations, "iterations")
 
 # import math

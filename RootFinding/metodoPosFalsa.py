@@ -8,6 +8,7 @@ while(salir == 'n'):
     print("a) [f(x) = cos²(x)-x²]")
     print("b) [f(x) = x·sen(x)-1]")
     print("c) [f(x) = x³-2x²+(4/3)x-(8/27)]")
+    print("d) [f(x) = (9.8*68.1/x)*(1-exp(-(x/68.1)*10))-40]")
     opc = input("\n\tEscoja una opc -> ")
 
     if(opc == 'a'):
@@ -16,10 +17,17 @@ while(salir == 'n'):
         f = lambda x: x*math.sin(x)-1
     elif(opc == 'c'):
         f = lambda x: (x**3)-(2*x**2)+(4/3)*x-(8/27)
+    # Estas dos:
+    elif(opc == 'd'):
+        f = lambda x: (9.8*68.1/x)*(1-math.exp(-(x/68.1)*10))-40
 
     for i in range (4):
-        a = -1
-        b = 2
+        # Este intervalo para el punto d.
+        a = 10
+        b = 15
+        # Intervalos para puntos a - c.
+        # a = -1
+        # b = 2
         if(i == 0):
             tol = 10**(-8)
         elif(i == 1):
@@ -42,6 +50,7 @@ while(salir == 'n'):
             else:
                 tramo = abs(b-c)
                 b = c
+            # print(tramo)
             print("[n={}]-> {:0.10f}".format(n,c))
             n+=1
         
