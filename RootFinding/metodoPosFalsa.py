@@ -50,10 +50,9 @@ while(salir == 'n'):
             else:
                 tramo = abs(b-c)
                 b = c
-            # print(tramo)
-            print("[n={}]-> {:0.10f}".format(n,c))
+            print(tramo)
+            # print("[n={}]-> {:0.10f}".format(n,c))
             n+=1
-        
-        print("[RESULTADO DESPUES DE {} ITERACIONES]-> {:0.10f}".format(n,c))
+        # print("[RESULTADO DESPUES DE {} ITERACIONES]-> {:0.10f}".format(n,c))
 
     salir = input("\nQuiere salir del programa? (s:si/n:no): ")
