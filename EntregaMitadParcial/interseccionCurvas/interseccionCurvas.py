@@ -19,16 +19,21 @@ def interseccionCurvas(a, b, tol, f):
 
 #f: expresión hallada para la intersección entre las dos curvas.
 f = lambda x: -3*x**3 + 60*x + 57 - 300*x**-1 
-#Intervalos basado en solución de Wolfram Alpha:
-a1 = 1
-b1 = 3
 
-a2 = 3
-b2 = 4.6
+tol = [2**(-16), 2**(-50)]
 
-tol = 2**(-16)
+#Intervalos basados en solución gráfica de Wolfram Alpha:
+inter = [[1, 3],
+        [3, 4.6]]
 
-interseccionCurvas(a1, b1, tol, f)
+interseccionCurvas(inter[0][0], inter[0][1], tol[0], f)
 print('----------------------------------------')
-interseccionCurvas(a2, b2, tol, f)
-        
+
+interseccionCurvas(inter[0][0], inter[0][1], tol[1], f)
+print('----------------------------------------')
+
+interseccionCurvas(inter[1][0], inter[1][1], tol[0], f)
+print('----------------------------------------')
+
+interseccionCurvas(inter[1][0], inter[1][1], tol[1], f)
+print('----------------------------------------')
