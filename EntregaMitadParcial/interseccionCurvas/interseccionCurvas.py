@@ -5,7 +5,7 @@ def interseccionCurvas(a, b, tol, f):
     #Se requiere que f(a) < f(b) en el intervalo [a,b].
     if(f(a)-f(b) < 0 or f(b)-f(a) < 0):
         tramo = abs(b-a)
-        while(tramo > tol):        
+        while(tramo > tol):
             c = b - (f(b) * (a - b))/(f(a) - f(b))
             if(np.sign(f(c)) == np.sign(f(a))):
                 tramo = abs(c-a)
