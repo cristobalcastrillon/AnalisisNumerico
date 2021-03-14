@@ -1,9 +1,7 @@
 import numpy as np
 import math 
 
-def interseccionCurvas(a, b, tol, f, g):
-    #'f' y 'g' son funciones 'lambda' igualadas a '0' (e.g. f = lambda x,y: x**2 + x*y - 10 —función original: f(x) = x**2 + x*y = 10)
-    h = lambda x,y: f - g
+def interseccionCurvas(a, b, tol, f):
     tramo = abs(b-a)
     while(tramo > tol):        
         c = b - (f(b) * (a - b))/(f(a) - f(b))
@@ -13,13 +11,20 @@ def interseccionCurvas(a, b, tol, f, g):
         else:
             tramo = abs(b-c)
             b = c
-        #print("n=[{}] | APROX.=[{:0.10f}] | ERROR=[{}]".format(n,c,tramo))
+        print("APROX.=[{:0.10f}] | ERROR=[{}]".format(c,tramo))
 
-f = lambda x,y: x**2 + x*y - 10
-g = lambda x,y: y + 3*x*y**2 - 57
-a = -1
-b = 2
+#f: expresión hallada para la intersección entre las dos curvas.
+f = lambda x: -3*x**3 + 60*x + 57 - 300*x**-1 
+#Intervalos basado en solución de Wolfram Alpha:
+a1 = 1
+b1 = 3
+
+a2 = 3
+b2 = 4.6
+
 tol = 2**(-16)
 
-interseccionCurvas(a, b, tol, f, g)
+interseccionCurvas(a1, b1, tol, f)
+print('----------------------------------------')
+interseccionCurvas(a2, b2, tol, f)
         
