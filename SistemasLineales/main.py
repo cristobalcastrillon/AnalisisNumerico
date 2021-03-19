@@ -23,8 +23,7 @@ def matrizTransicionGS(a):
   #d (diagonal).
   d = np.diag(a)
   d = np.diag(d)
-  dDet = np.linalg.det(d)
-  if(not(dDet)): #Evaluando que tenga inversa...
+  if(not(np.linalg.det(d))): #Evaluando que tenga inversa...
     return
   dInv = np.linalg.inv(d)
   #l (lower): matriz inferior triangular.
