@@ -19,7 +19,7 @@ def seidel(a, x, b):
           print("PARAAAAAAAAAAAAAR")     
     return x     
 
-def matrizTransicion(a):
+def matrizTransicionGS(a):
   #d (diagonal).
   d = np.diag(a)
   d = np.diag(d)
@@ -43,7 +43,7 @@ def matrizTransicion(a):
     return
 
 def radioEspectral(a):
-  t = matrizTransicion(a)
+  t = matrizTransicionGS(a)
   eigenValues = np.linalg.eigvals(t)
   #Calcular y retornar el valor máximo de 'eigenValues'.
   return max(eigenValues)
