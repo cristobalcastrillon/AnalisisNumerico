@@ -59,9 +59,9 @@ x2 = [14,14.5,15,15.5,16,16.5,17,17.5,18,18.5,19,19.5,20]
 y2 = [20.9132,20.6454,20.205,19.6076,18.8688,18.0042,17.0294,15.96,14.8116,13.5998,12.3402,11.0484,9.74]
 DiferenciasDivididas(x2, y2)
 
-print("----------------------PRUEBA----------------------")
-f2 = lambda x: x
-x2 = [1,2,3,4]
+# print("----------------------PRUEBA----------------------")
+# f2 = lambda x: x
+# x2 = [1,2,3,4]
 
-f_x2 = calcularVector(f2, x2)
-DiferenciasDivididas(x2, f_x2)
+# f_x2 = calcularVector(f2, x2)
+# DiferenciasDivididas(x2, f_x2)
