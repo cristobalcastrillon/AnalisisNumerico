@@ -1,6 +1,7 @@
 import numpy as np
 #Sympy para imprimir el polinomio de Newton.
-#import sympy as sp
+from sympy import *
+import FormatoPolinomio as fp
 
 def DiferenciasDivididas(vecX, vecY):
     """
@@ -32,9 +33,13 @@ def DiferenciasDivididas(vecX, vecY):
         iVar += 1
         jVar += 1
         n -= 1
-    print(b)
+    # La siguiente línea es de prueba (imprime la tabla de diferencias divididas):
+    # print(b)
 
-    #Retornar / Imprimir el polinomio de Newton que interpola los puntos...
+    #Imprimiendo el polinomio de Newton que interpola los puntos...
+    x = Symbol('x')
+    nwtnPoly = fp.formatoPolinomio(len(vecX), b[0])
+    print(nwtnPoly)
 
 def calcularVector(f, vecX):
     vecY = []
@@ -42,20 +47,21 @@ def calcularVector(f, vecX):
         vecY.append(f(vecX[i]))
     return vecY
 
-print("PUNTO 1:")
+print("----------------------PUNTO 1----------------------")
 f1 = lambda x: np.log(x)
 x1 = [1, 2]
 
 f_x = calcularVector(f1, x1)
 DiferenciasDivididas(x1, f_x)
 
-print("PUNTO 7.c:")
+print("----------------------PUNTO 7.c----------------------")
 x2 = [14,14.5,15,15.5,16,16.5,17,17.5,18,18.5,19,19.5,20]
 y2 = [20.9132,20.6454,20.205,19.6076,18.8688,18.0042,17.0294,15.96,14.8116,13.5998,12.3402,11.0484,9.74]
 DiferenciasDivididas(x2, y2)
 
-# f2 = lambda x: x
-# x2 = [1,2,3,4]
+print("----------------------PRUEBA----------------------")
+f2 = lambda x: x
+x2 = [1,2,3,4]
 
-# f_x2 = calcularVector(f2, x2)
-# DiferenciasDivididas(x2, f_x2)
+f_x2 = calcularVector(f2, x2)
+DiferenciasDivididas(x2, f_x2)
