@@ -1,7 +1,10 @@
 import numpy as np
-#Sympy para imprimir el polinomio de Newton.
-from sympy import *
-import FormatoPolinomio as fp
+from sympy import symbols
+from sympy.plotting import plot
+import matplotlib.pyplot as plt
+
+#Definiendo el símbolo 'x'...
+x = symbols('x')
 
 def DiferenciasDivididas(vecX, vecY):
     """
@@ -36,10 +39,9 @@ def DiferenciasDivididas(vecX, vecY):
     # La siguiente línea es de prueba (imprime la tabla de diferencias divididas):
     # print(b)
 
-    #Imprimiendo el polinomio de Newton que interpola los puntos...
-    x = Symbol('x')
-    nwtnPoly = fp.formatoPolinomio(len(vecX), b[0])
-    print(nwtnPoly)
+    #Retornando el polinomio de Newton que interpola los puntos...
+    nwtnPoly = formatoPolinomio(len(vecX), b[0], vecX)
+    return nwtnPoly
 
 def calcularVector(f, vecX):
     vecY = []
@@ -47,21 +49,35 @@ def calcularVector(f, vecX):
         vecY.append(f(vecX[i]))
     return vecY
 
+def formatoPolinomio(n, coeficientes, vecX):
+    polinomio = 0
+    for i in range(1, n):
+        multi = 1
+        for j in range(0, i-1):
+            multi *= (x-vecX[j])
+        polinomio += (coeficientes[i] * multi)
+    return polinomio
+
 print("----------------------PUNTO 1----------------------")
 f1 = lambda x: np.log(x)
 x1 = [1, 2]
-
 f_x = calcularVector(f1, x1)
-DiferenciasDivididas(x1, f_x)
+poly1 = DiferenciasDivididas(x1, f_x)
+print(poly1)
+plot(poly1, (x, min(x1), max(x1)))
 
 print("----------------------PUNTO 7.c----------------------")
-x2 = [14,14.5,15,15.5,16,16.5,17,17.5,18,18.5,19,19.5,20]
-y2 = [20.9132,20.6454,20.205,19.6076,18.8688,18.0042,17.0294,15.96,14.8116,13.5998,12.3402,11.0484,9.74]
-DiferenciasDivididas(x2, y2)
+x2 = [6,8,10,12,14,16,18,20]
+y2 = [7,9,12,18,21,19,15,10]
+poly2 = DiferenciasDivididas(x2, y2)
+print(poly2)
+plot(poly2, (x, (min(x2)), (max(x2))))
+plt.scatter(x2, y2)
+plt.show()
 
 # print("----------------------PRUEBA----------------------")
 # f2 = lambda x: x
 # x2 = [1,2,3,4]
-
 # f_x2 = calcularVector(f2, x2)
-# DiferenciasDivididas(x2, f_x2)
+# polyPrueba = DiferenciasDivididas(x2, f_x2)
+# print(polyPrueba)
