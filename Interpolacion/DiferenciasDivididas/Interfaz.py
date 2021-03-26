@@ -1,5 +1,5 @@
 import numpy as np
-from sympy import symbols
+from sympy import symbols, simplify
 from sympy.plotting import plot
 import matplotlib.pyplot as plt
 import DiferenciasDivididas as difdivs
@@ -19,11 +19,12 @@ print("----------------------PUNTO 7.c----------------------")
 x2 = [6,8,10,12,14,16,18,20]
 y2 = [7,9,12,18,21,19,15,10]
 poly2 = difdivs.DiferenciasDivididas(x2, y2)
-print(poly2)
+print("Expresión resultante:\n", poly2, '\n')
+print("Expresión simplificada (polinomio de Newton):\n", simplify(poly2), '\n')
+#TODO: Sobreponer gráficas (dispersión y curva)
 plot(poly2, (x, (min(x2)), (max(x2))))
 plt.scatter(x2, y2)
 plt.show()
-# Polinomio de grado seis (Symbolab): -0.00023...x^6+0.018305x^5-0.58648x^4+9.62244x^3-84.89164x^2+382.47568x-681.7328
 
 # print("----------------------PRUEBA----------------------")
 # f2 = lambda x: x
