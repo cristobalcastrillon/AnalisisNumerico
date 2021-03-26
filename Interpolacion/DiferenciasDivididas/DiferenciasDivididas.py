@@ -74,6 +74,7 @@ print(poly2)
 plot(poly2, (x, (min(x2)), (max(x2))))
 plt.scatter(x2, y2)
 plt.show()
+# Polinomio de grado seis (Symbolab): -0.00023...x^6+0.018305x^5-0.58648x^4+9.62244x^3-84.89164x^2+382.47568x-681.7328
 
 # print("----------------------PRUEBA----------------------")
 # f2 = lambda x: x
