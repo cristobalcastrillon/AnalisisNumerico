@@ -8,14 +8,15 @@ def quadSpline(x, y):
     print(incogs)
     eqs = [[0 for i in range(nSplines**2)] for j in range(nSplines**2)]
     print(eqs)
-
-    for i in range(nSplines**2):
-        for j in range(nSplines**2):
-            if(j == 0 and i == 0):
-                #a_1 = 0:
-                eqs[i][j] = 0
-            # else:
-                #¿Por qué la primera fila de la matriz queda así (ejemplo)?
+    # Llenar la matriz:
+    # Cuando i (filas) < 6 (nSplines) y distinto al siguiente i tal que i%2 = 0, entonces:
+    #   Cuando j (columnas) < 6 y distinto al siguiente j tal que j%3 = 0, entonces:
+    #       if(j%3 == 0):
+    #           eqs[i][j] = x[i]**2
+    #       if(j%3 == 1):
+    #           eqs[i][j] = x[i]
+    #       else:
+    #           eqs[i][j] = 1
 
 
 x = [3, 4.5, 7, 9]
