@@ -1,5 +1,6 @@
 import modelos as mod
 import numpy as np
+import csv
 import matplotlib.pyplot as plt
 from scipy.integrate import odeint
 from scipy.integrate import solve_ivp
@@ -30,7 +31,7 @@ sol_SIR = odeint(mod.modelo_SIR, [S0, I0, R0], tSIR, args=(tasaInfec, tasaRecup)
 sol_SIR = np.array(sol_SIR)
 
 # Gráfica
-
+"""
 plt.figure(figsize = [6, 4])
 plt.plot(tSIR, sol_SIR[:, 0], label = "S(t)")
 plt.plot(tSIR, sol_SIR[:, 1], label = "I(t)")
@@ -40,7 +41,14 @@ plt.legend()
 plt.xlabel("Tiempo")
 plt.ylabel("No. Individuos")
 plt.show()
+"""
 
+# Guardando datos en CSV...
+with open('sir_ODEInt.csv', mode='w') as sir_ODEInt:
+  row_writer = csv.writer(sir_ODEInt, delimiter=';')
+  row_writer.writerow(['Dia','Susceptibles','Infectados','Recuperados'])
+  for i in range(len(tSIR)):
+    row_writer.writerow([i + 1, sol_SIR[i, 0], sol_SIR[i, 1], sol_SIR[i, 2]])
 
 # Solución con MÉTODO: Runge-Kutta de Orden 4
 # Basado en:
@@ -51,7 +59,7 @@ def ode_SIR(t, y):
 sol_SIR2 = solve_ivp(ode_SIR, [tSIR[0], tSIR[-1]], [S0, I0, R0], method = "RK45", t_eval = tSIR)
 
 # Gráfica
-
+"""
 plt.figure(figsize = [6, 4])
 plt.plot(sol_SIR2.t, sol_SIR2.y[0], label = "S(t)")
 plt.plot(sol_SIR2.t, sol_SIR2.y[1], label = "I(t)")
@@ -61,7 +69,14 @@ plt.legend()
 plt.xlabel("Tiempo")
 plt.ylabel("No. Individuos")
 plt.show()
+"""
 
+# Guardando datos en CSV...
+with open('sir_RK45.csv', mode='w') as sir_ODEInt:
+  row_writer = csv.writer(sir_ODEInt, delimiter=';')
+  row_writer.writerow(['Dia','Susceptibles','Infectados','Recuperados'])
+  for i in range(len(tSIR)):
+    row_writer.writerow([i+1, sol_SIR2.y[0][i], sol_SIR2.y[1][i], sol_SIR2.y[2][i]])
 
 # ----------------Susceptible - Infectado--------------
 sus = [] # Array Infectados
@@ -75,7 +90,7 @@ tSI = 60
 sol = mod.modelo_SI(S0, I0, N, tasaInfec, tSI)
 
 # Gráfica
-
+"""
 figure = plt.figure()
 figure.canvas.set_window_title('Modelo SI')
 figure.add_subplot(211)
@@ -90,7 +105,14 @@ plt.legend(handles = prob_line)
 plt.xlabel('T')
 plt.ylabel('p')
 plt.show()
+"""
 
+# Guardando datos en CSV...
+with open('si_Numerico.csv', mode='w') as sir_ODEInt:
+  row_writer = csv.writer(sir_ODEInt, delimiter=';')
+  row_writer.writerow(['Dia','Susceptibles','Infectados'])
+  for i in range(tSI):
+    row_writer.writerow([i + 1, sol[0][i], sol[1][i]])
 
 # Solución con MÉTODO: Runge-Kutta de Orden 4
 # Basado en:
@@ -101,7 +123,7 @@ def ode_SI(t, y):
 sol_SI2 = solve_ivp(ode_SI, [tSIR[0], tSIR[-1]], [S0, I0], method = "RK45", t_eval = tSIR)
 
 # Gráfica
-
+"""
 plt.figure(figsize = [6, 4])
 plt.plot(sol_SI2.t, sol_SI2.y[0], label = "S(t)")
 plt.plot(sol_SI2.t, sol_SI2.y[1], label = "I(t)")
@@ -110,7 +132,14 @@ plt.legend()
 plt.xlabel("Tiempo")
 plt.ylabel("No. Individuos")
 plt.show() 
+"""
 
+# Guardando datos en CSV...
+with open('si_RK45.csv', mode='w') as sir_ODEInt:
+  row_writer = csv.writer(sir_ODEInt, delimiter=';')
+  row_writer.writerow(['Dia','Susceptibles','Infectados'])
+  for i in range(tSI):
+    row_writer.writerow([i + 1, sol_SI2.y[0][i], sol_SI2.y[1][i]])
 
 # ---------------Depredador - Presa----------------
 # Datos tomados de Predator-Prey Modeling/Shaza Hussein/University of South Florida
@@ -134,7 +163,7 @@ sol_DP = odeint(mod.modelo_DP, y0, tDP, args=(params,))
 sol_DP = np.array(sol_DP)
 
 # Gráfica
-
+"""
 plt.figure(figsize = [6, 4])
 plt.plot(tDP, sol_DP[:, 0], label = "Conejos")
 plt.plot(tDP, sol_DP[:, 1], label = "Zorros")
@@ -143,7 +172,7 @@ plt.legend()
 plt.xlabel("Tiempo")
 plt.ylabel("No. de Individuos")
 plt.show()
-
+"""
 
 # Amplitud de cada función
 maxConejo = max(sol_DP[:, 0])
